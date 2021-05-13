@@ -9,6 +9,12 @@ class ListAllUsersController {
     try {
       const { user_id } = request.headers;
 
+      if (!user_id) {
+        return response
+          .status(400)
+          .json({ error: 'Please fill user_id field!' });
+      }
+
       const allUsers = this.listAllUsersUseCase.execute({
         user_id: String(user_id),
       });

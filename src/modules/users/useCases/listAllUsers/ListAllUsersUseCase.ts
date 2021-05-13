@@ -16,7 +16,7 @@ class ListAllUsersUseCase {
     }
 
     if (!user.admin) {
-      throw new Error('User doesnt have permission');
+      throw new Error('User does not have privileges');
     }
 
     return this.usersRepository.list();
